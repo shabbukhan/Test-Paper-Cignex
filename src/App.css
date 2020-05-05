@@ -1,0 +1,122 @@
+body{font-size: 100%; font-weight: normal; font-family: Arial, Helvetica, sans-serif;}
+
+/* ------header------ */
+nav {
+    background: #7096c7;
+    line-height: 50px;
+    text-align: center;
+    font-size: 1.2em;
+    }
+
+nav a {color: #000; text-decoration: none; margin: 0 20px;}
+nav a:hover {color: #FFF ;}
+
+/* ------Product page------ */
+#grid-container {
+    display: flex;
+    flex-direction: row;
+    /* justify-content:space-between; */
+    flex-wrap: wrap;
+    width: 75%;
+    margin: auto;
+  }
+  .grid-item {
+    background-color: #e1e1e1;
+    border: 1px solid #d6d2d6;
+    text-align: left;
+    margin: 2%;
+    width: 25%;
+    padding: 15px;
+  }
+.show{display: inline;}
+.hide{display: none;}
+
+.sorting{
+    width: 25%;
+    margin: 30px auto 0;
+}
+select, input[type='text'], input[type='password']{
+    width: 50%;
+    height: 30px;
+    box-shadow: none;
+}
+select {
+    position: relative;
+    width: 200px;
+    margin: 0 auto;
+    background: #fff;
+    border-left: 5px solid grey;
+    cursor: pointer;
+    outline: none;
+} 
+
+button {
+background: #496d9b;
+color: #fff;
+padding: 2% 5%;
+border: none;
+font-size: 1em;
+cursor: pointer;    
+}
+#quickView {
+    background: #1b1a20;
+    color: #FFF;
+    padding: 10px;
+    position: absolute;
+    width: 33%;
+    top: 10%;
+    left: 33%;
+}
+#close{cursor: pointer; float: right;}
+
+/* ------Cart page------ */
+#cartContainer {
+    color: #FFF;
+    right: 0;
+    top: 0;    
+    padding: 10px;
+}
+#cartContainer label{color: #000;}
+#cartContent {
+    width: 400px;
+    padding-bottom: 50px;
+    margin: auto;
+}
+#cartContent ul{padding: 0;}
+#cartContent li {
+    list-style: none;
+    line-height: 30px;
+    background: #413f44;
+    padding: 20px;
+    border-bottom: 1px solid #16151a;
+}
+#cartContent li span {
+    color: #eabf00;
+}
+#cartContainer i {cursor: pointer;}
+.cartItem{
+    background: #eabf00;
+    border-radius: 100%;
+    color: #000;
+    position: relative;
+    top: -12px;
+    text-align: center;
+    left: -2px;
+    padding: 5px;
+    font-size: 24px;
+}
+.addCart {float: right;}
+.fa-shopping-cart{
+    text-align: center;
+    display: block;
+    cursor: pointer;
+}
+@media only screen and (max-width: 768px){
+    .sorting {
+        width: 50%;
+        margin: 5% auto;
+    }
+    #cartContent, .grid-item, #grid-container, label[for='username'],  label[for='password'], label[for='confirmpassword'], label[for='experience'] {
+        width: 100%;
+    }
+}
