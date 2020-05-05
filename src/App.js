@@ -6,6 +6,7 @@ import axios from "axios";
 import Header from "./components/layout/Header";
 import Cart from "./components/pages/Cart";
 import QuickView from "./components/products/QuickView";
+import {compareByProperty} from './util'
 
 class App extends Component {
   constructor() {
@@ -77,35 +78,25 @@ class App extends Component {
   };
 
   handleSortChange = e => {
+    const items = this.state.items;
+    const cartItems = this.state.cartItems;
     if (e.target.value === "highestprice") {
-      const sortedProductsDec = this.state.items.sort((a, b) => {
-        return b.price - a.price;
-      });
-      const cartDec = this.state.cartItems.sort((a, b) => {
-        return b.price - a.price;
-      });
+      const sortedProductsDec = items.sort(compareByProperty('price', 'DES'));
+      const cartDec = cartItems.sort(compareByProperty('price', 'DES'));
       this.setState({
         items: sortedProductsDec,
         cartItems: cartDec
       });
     } else if (e.target.value === "lowestprice") {
-      const sortedProductsAsc = this.state.items.sort((a, b) => {
-        return a.price - b.price;
-      });
-      const cartAsc = this.state.cartItems.sort((a, b) => {
-        return a.price - b.price;
-      });
+      const sortedProductsAsc = items.sort(compareByProperty('price', 'ASC'));
+      const cartAsc = cartItems.sort(compareByProperty('price', 'ASC'));
       this.setState({
         items: sortedProductsAsc,
         cartItems: cartAsc
       });
     } else {
-      const productDefault = this.state.items.sort((a, b) => {
-        return b.id - a.id;
-      });
-      const cartDefault = this.state.cartItems.sort((a, b) => {
-        return b.id - a.id;
-      });
+      const productDefault = items.sort(compareByProperty('id', 'DES'));
+      const cartDefault = cartItems.sort(compareByProperty('id', 'DES'));
       this.setState({
         items: productDefault,
         cartItems: cartDefault
